@@ -25,7 +25,7 @@ The [notebooks](notebooks/) folder contains four examples/tutorials:
 
 1. [Example 1](notebooks/Example_1_ArgoBGC_Map_Oxygen.ipynb) shows how to make a map of dissolved oxygen content in the North West Atlantic;
 2. [Example 2](notebooks/Example_2_CrocoLakePHY_Map_Temperature.ipynb) shows how to make a map of temperature measurements in the North West Atlantic, including information about the source (Argo, GLODAP, or Spray Gliders);
-3. [Example 3](notebooks/Example_3_ArgoPHY_QC_Map_Oxygen-Copy1.ipynb) shows how to make temperature-salinity plots from Argo QC-ed measurements;
+3. [Example 3](notebooks/Example_3_ArgoPHY_QC_Temperature-Salinity_Profiles.ipynb) shows how to make temperature-salinity plots from Argo QC-ed measurements;
 4. [Example 4](notebooks/Example_4_Animation_Oxygen.ipynb) shows how to make an animation of Argo's fleet growth over time on a world map.
 
 ### Databases
@@ -33,7 +33,7 @@ The [notebooks](notebooks/) folder contains four examples/tutorials:
 The following databases are currently available:
 
 * CrocoLake: contains the best available data from Argo, GLODAP, and Spray Gliders. [More details here](https://crocolakedocs.readthedocs.io/en/latest/crocolake.html). [This example uses CrocoLake](notebooks/Example_2_CrocoLakePHY_Map_Temperature.ipynb).
-* Argo 'QC': contains the best available data, that is real time values are reported only when delayed values are not available. This version is the same used in CrocoLake, and [here](https://crocolakedocs.readthedocs.io/en/latest/available_datasets.html#argo) you can find more details on how it is generated. [This example uses Argo 'QC'](notebooks/Example_3_ArgoPHY_QC_Map_Oxygen-Copy1.ipynb).
+* Argo 'QC': contains the best available data, that is real time values are reported only when delayed values are not available. This version is the same used in CrocoLake, and [here](https://crocolakedocs.readthedocs.io/en/latest/available_datasets.html#argo) you can find more details on how it is generated. [This example uses Argo 'QC'](notebooks/Example_3_ArgoPHY_QC_Temperature-Salinity_Profiles.ipynb).
 * Argo 'ALL': contains all real time and adjusted variables as reported in the core ('<PLATFORM_NUMBER>_prof.nc') and synthetic ('<PLATFORM_NUMBER>_Sprof.nc') profile files, for the physical and biogeochemical versions respectively. [Both this](notebooks/Example_1_ArgoBGC_Map_Oxygen.ipynb) and [this examples](notebooks/Example_4_Animation_Oxygen.ipynb) use Argo 'ALL'.
 
 Each database comes in 'PHY' and 'BGC' versions.
