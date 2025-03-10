@@ -1,5 +1,5 @@
 # Ignore data
-./notebooks/CrocoLake/
+./notebooks/CrocoLake/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
