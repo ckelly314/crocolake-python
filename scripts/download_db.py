@@ -16,6 +16,14 @@ import zipfile
 ##########################################################################
 # Dictionary of URLs
 urls = {}
+# stable versions
+urls["0007_PHY_CROCOLAKE-QC-MERGED"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/Eer0i-G9PGFEqQFEld4-C_sBrj8cUZTGggWLITXvDLenMA?e=121XEf&download=1"
+urls["0007_BGC_CROCOLAKE-QC-MERGED"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/EbaJJN6r0EFLrhpy3Z7peYUBWr3uQxg0MSzVBBZnnJgQeg?e=6lYFX0&download=1"
+urls["1003_PHY_ARGO-QC"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/EU27jRjY_llJlIsXNimqYzYBYOZmWnszAwtjTGmqOApI7g?e=OKcY0P&download=1"
+urls["1003_BGC_ARGO-QC"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/ETgmVncDinFOjOFe1iKTd0ABY98L67cxfhUGoPWtPnCjxQ?e=riUvGd&download=1"
+urls["1011_PHY_ARGO-CLOUD"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/ESqHZwCxTyBHt4_fJnrfdqwBmk-UBKG38yMLUZ2jOEWjqQ?e=33g5zK&download=1"
+urls["1011_BGC_ARGO-CLOUD"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/EcI3tSLsly5Lv33VMd7H2vgBgj8JEX0bsd5gfQaADv2Tkw?e=dR0ITr&download=1"
+# older dev versions in case something goes wrong with stable
 urls["0006_PHY_CROCOLAKE-QC-MERGED-DEV"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/ETVsmC-RKnlIpH_cWf1fSHcBCfeAPGT9QOCv7Qxxrbt4Mg?e=oODdbu&download=1"
 urls["0006_BGC_CROCOLAKE-QC-MERGED-DEV"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/EYu01zZNqjJLi9ep8eM3SNwBAG98weAgQWqlmNbYeuncRg?e=ie04C4&download=1"
 urls["1002_PHY_ARGO-QC-DEV"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/Ebme_Sr3np9CtEpcTZAnLPUBGY1rI9WvabYRtv9IAeFprg?e=Pb81Cd&download=1"
@@ -24,31 +32,65 @@ urls["1010_PHY_ARGO-CLOUD-DEV"] = "https://whoi-my.sharepoint.com/:u:/g/personal
 urls["1010_BGC_ARGO-CLOUD-DEV"] = "https://whoi-my.sharepoint.com/:u:/g/personal/enrico_milanese_whoi_edu/EYs1amvXcH9Ml_qTXzdQNNYBYWPMonx8mcA6Hd2sXqNItw?e=6gvkbu&download=1"
 
 #------------------------------------------------------------------------------#
-def get_db_codename(db_name, db_type, qc):
+def get_db_codename(db_name, db_type, qc, dev=False):
 
     if db_name=="CROCOLAKE":
         if not qc:
             raise ValueError("CrocoLake database available only with QC.")
         if db_type=="PHY":
-            return "0006_PHY_CROCOLAKE-QC-MERGED-DEV"
+            codename = "0007_PHY_CROCOLAKE-QC-MERGED"
         elif db_type=="BGC":
-            return "0006_BGC_CROCOLAKE-QC-MERGED-DEV"
+            codename = "0007_BGC_CROCOLAKE-QC-MERGED"
         else:
             raise ValueError("Invalid database type. Must be 'PHY' or 'BGC'.")
 
     elif db_name=="ARGO":
         if db_type=="PHY":
             if qc:
-                return "1002_PHY_ARGO-QC-DEV"
+                codename = "1003_PHY_ARGO-QC"
             else:
-                return "1010_PHY_ARGO-CLOUD-DEV"
+                codename = "1011_PHY_ARGO-CLOUD"
         elif db_type=="BGC":
             if qc:
-                return "1002_BGC_ARGO-QC-DEV"
+                codename = "1003_BGC_ARGO-QC"
             else:
-                return "1010_BGC_ARGO-CLOUD-DEV"
+                codename = "1011_BGC_ARGO-CLOUD"
         else:
             raise ValueError("Invalid database type. Must be 'PHY' or 'BGC'.")
+
+    if dev:
+        return codename+"-DEV"
+    else:
+        return codename
+
+#------------------------------------------------------------------------------#
+def update_digits(codename):
+    """Decrease 4th digit of a string.
+
+    Args:
+    codename (str)  --  Input database codename in format 'XXXW-DBNAME'.
+
+    Returns:
+    codename (str)  --  Updated database codename with W decreased by 1.
+    """
+
+    match = re.match(r'(\d{3})(\d)-(.+)', input_str)
+
+    if match:
+        XXX = match.group(1)  # first three digits
+        W = int(match.group(2))  # 4th digit
+        db_name = match.group(3)  # db name
+
+        # Increment W
+        W = W + 1
+
+        # Reconstruct the string
+        output_str = f'{XXX}{W}-{db_name}'
+
+        # Display the result
+        print(output_str)
+    else:
+        print('Input string does not match the expected format.')
 
 #------------------------------------------------------------------------------#
 def download_file(url, local_filename):
