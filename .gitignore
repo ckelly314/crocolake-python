@@ -12,6 +12,10 @@ slurm/
 # data and schema folders
 data/
 schemas/
+*/CrocoLake/*
+
+# parquet data files
+*.parquet
 
 # C extensions
 *.so
