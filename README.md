@@ -26,7 +26,8 @@ The [notebooks](notebooks/) folder contains four examples/tutorials:
 1. [Example 1](notebooks/Example_1_ArgoBGC_Map_Oxygen.ipynb) shows how to make a map of dissolved oxygen content in the North West Atlantic;
 2. [Example 2](notebooks/Example_2_CrocoLakePHY_Map_Temperature.ipynb) shows how to make a map of temperature measurements in the North West Atlantic, including information about the source (Argo, GLODAP, or Spray Gliders);
 3. [Example 3](notebooks/Example_3_ArgoPHY_QC_Temperature-Salinity_Profiles.ipynb) shows how to make temperature-salinity plots from Argo QC-ed measurements;
-4. [Example 4](notebooks/Example_4_Animation_Oxygen.ipynb) shows how to make an animation of Argo's fleet growth over time on a world map.
+4. [Example 4](notebooks/Example_4_Animation_Oxygen.ipynb) shows how to make an animation of Argo's fleet growth over time on a world map;
+4. [Example 5](notebooks/Example_5_CrocoLakeBGC_Map_Oxygen.ipynb) shows how to make a map of dissolved oxygen measurements in the Pacific off the coast of California.
 
 ### Databases
 

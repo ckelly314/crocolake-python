@@ -35,6 +35,7 @@ setup(
         'tqdm',
         'urllib3==1.26.6',
         'xarray',
+        's3fs'
     ],
     entry_points={
         'console_scripts': [
