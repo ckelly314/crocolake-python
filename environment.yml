@@ -1,24 +1,28 @@
-name: gliders
+name: crocolake
 channels:
-  - pytorch
-  - pyg
-  - anaconda
   - conda-forge
-  - defaults
 dependencies:
   - python=3.11
-  - jupyter
-  - jupyterlab
-  - numpy
-  - pandas
-  - dask
-  - scikit-learn
-  - xarray
-  - matplotlib
+  - bokeh
   - cartopy
-  - seaborn
+  - dask
+  - distributed
+  - gsw
+  - jupyterlab
+  - matplotlib
+  - numpy=1.26.4
+  - pandas
+  - psutil=5.9.8
   - pyarrow
-  - python-dotenv
+  - pytest
+  - setuptools
+  - tqdm
+  - urllib3=1.26.6
+  - xarray
+  - s3fs
+  - dask
   - pip
   - pip:
-      - gsw
+      - argopy==0.1.15
+      - .
+
