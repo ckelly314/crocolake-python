@@ -1,0 +1,24 @@
+name: gliders
+channels:
+  - pytorch
+  - pyg
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - jupyter
+  - jupyterlab
+  - numpy
+  - pandas
+  - dask
+  - scikit-learn
+  - xarray
+  - matplotlib
+  - cartopy
+  - seaborn
+  - pyarrow
+  - python-dotenv
+  - pip
+  - pip:
+      - gsw
