@@ -9,12 +9,36 @@ CrocoLake-Python is a collection of Jupyter notebooks that shows how to interfac
 4. [Contact](#contact)
 
 ### Usage
-To install the necessary packages, run:
 
-``` sh
-pip install .
-```
+#### python
 
+Create your local environment (creates a folder in your current directory)
+`virtualenv crocolake`
+
+Activate the new python environment
+`source crocolake/bin/activate`
+
+Install the required packages
+`pip install .`
+
+Launch jupyter lab to access the notebooks:
+`jupyter lab`
+
+If you don't have virtualenv in your machine, you can install it with
+`pip install virtualenv`
+
+#### conda
+
+Create the local environment
+`conda env create -f environment.yml`
+
+Activate the environment:
+`conda activate crocolake`
+
+Launch jupyter lab to access the notebooks:
+`jupyter lab`
+
+#### Notebooks
 You can then launch any notebook from the `notebooks` folder and execute it. Each example needs a specific dataset, and it contains code to download it to your local machine.
 
 Note that there are a couple of ways to load parquet datasets in a dataframe in Python: using [pyarrow](https://arrow.apache.org/docs/python/index.html) and using [dask](https://www.dask.org/). [Example 1](notebooks/Example_1_ArgoBGC_Map_Oxygen.ipynb) and [Example 2](notebooks/Example_2_CrocoLakePHY_Map_Temperature.ipynb) show both, while the other examples use the one that in my experience is most efficient (i.e. dask).

@@ -1,0 +1,27 @@
+name: crocolake
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - bokeh
+  - cartopy
+  - dask
+  - distributed
+  - gsw
+  - jupyterlab
+  - matplotlib
+  - numpy=1.26.4
+  - pandas
+  - psutil=5.9.8
+  - pyarrow
+  - pytest
+  - setuptools
+  - tqdm
+  - urllib3=1.26.6
+  - xarray
+  - s3fs
+  - dask
+  - pip
+  - pip:
+      - argopy==0.1.15
+      - .
